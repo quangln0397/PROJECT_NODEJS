@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chi tiết phòng trọ</title>
+	 <style>
+            select{
+
+                height: 40px;
+            }
+
+      		#header a{
+
+				font-family:arial;
+				font-size:15px;
+                display: inline;
+         		color:black;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+                width: 80px;
+
+            }
+            #header a:hover {
+                color: orange;
+                text-decoration: none
+
+            }
+            #search{
+             text-align: center;
+             background: #262637;
+             margin-top:10px;
+            }
+            .footer {
+                padding: 10px;
+                color: black;
+                background: #E9E9E9;
+            }
+            #header #logo{
+            	font-family:Comic sans MS;
+            	font-weight:600;
+            	font-size:18px;
+            	text-decoration: none;
+            	color:black;
+            	display:inline;
+            	margin-left: 130px;
+            	padding-right:200px;
+            }
+            #logo2{
+            	font-family:Comic sans MS;
+            	font-weight:600;
+            	font-size:18px;
+            	text-decoration: none;
+            	color:black;
+            	display:inline;
+            	padding-right:200px;
+            }
+            #header{
+            	margin-top: 20px
+            }
+
+         	#ndfooter{
+         		margin-left:100px;
+         	}
+
+
+        </style>
+</head>
+<script type = "text/javascript" src = "http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script type = "text/javascript" src = "slide.js"></script>
+<link  type = "text/css" href = "detail.css" rel = "stylesheet" media = "screen">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<body>
+
+		<div id="header">
+            	<a id= "logo" href="index.html"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
+                <a href="#dangky">Phòng cho thuê</a>
+                <a href="#timkiem">Nhà cho thuê</a>
+                <a href="#timkiem" >Tìm kiếm</a>
+                <a href="#dangnhap">Đăng Nhập</a>
+             	<a href="#hotro">Hỗ trợ</a>
+                <a href="lienhe">Liên hệ</a>
+              	  <input type="submit" value="Đăng Tin" class="btn btn-info" onclick="window.location.href='dangtin.html'"/>
+        </div>
+        <hr/>
+        <div class="maindiv" style="height:1600px">
+		<h3 style="font-family: arial; color: #555555; margin-left: 35px; margin-top: 30px;">Chi tiết phòng trọ<h3></h3>
+		<div  class="col-md-7"><!-- danh sach hinh -->
+			<span class="span5">Phòng mới xây có gác lững máy lạnh.</span>
+			<span class="span6">Lê Văn Việt, Long Thạnh Mỹ, Quận 9</span>
+			<span class="span7">Giá tiền:20 triệu/tháng.</span>
+			<a id = "prev" class="prev" ><img style="display: inline-block; width: 30px; height: 30px; " src = "anh/muitentrai.png"></a>
+			<a id = "next" class="next" ><img style="display: inline-block; width: 30px; height: 30px; " src = "anh/muitenphai.png"></a>
+			<img class = "slide" src="anh/phong1.jpg" stt = "0">
+			<img class = "slide" src="anh/phong2.jpg" stt = "1" style="display:none;">
+		</div>
+
+			<!-- title -->
+		<div class="col-md-4" style="background-color: #FFFFFF; border: 1px solid #D3D3D3;">
+			<a style="display: inline-block;margin: 0px 0px 10px 0px; font-size: 12px; " href="index.html">Quay về trang chủ</a>
+			<a style="display: inline-block;margin: 0px 0px 10px 65px; font-size: 12px;" href="index.html">Tin trước</a>
+			<a style="display: inline-block;margin: 0px 0px 10px 30px; font-size: 12px;" href="#">Tin sau</a>
+		</div>
+			<!-- thong tin nguoi moi gioi -->
+		<div  class="col-md-4"  style="background-color: white;">
+			<img class="rounded-circle" src="anh/avata.jpg">
+			<div class="content6">
+				<a href="#"style="font-size: 15px;">Nguyễn Minh Nhựt</a>
+				<span style="font-size: 12px;">Môi giới</span>
+				<span style="font-size: 15px;">ĐT: 0354531407</span>
+			</div>
+		</div>
+			<!--phong tro cung khu vuc-->
+		<div class="col-md-4"style="background-color: #FFFFFF; border: 1px solid #D3D3D3;">
+			<span style="font-size: 19px; font-family: arial;">Phòng trọ trong cùng khu vưc.</span>
+			<ul style=" font-size: 15px; font-family: arial;margin-top: 10px;">
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Hiệp Phú</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Long Bình</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Phú Hữu</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Phước Bình</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Phước Long A</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Tăng Nhơn Phú A</a></li>
+				<li style="margin-top: 10px;"><a style="color: black;" href="#">Phường Tăng Nhơn Phú B</a></li>
+			</ul>
+
+		</div>
+		<div class="col-md-4" style="background-color: #FFFFFF; border: 1px solid #D3D3D3;">
+			<span>Đặt câu hỏi ngay hoặc góp ý cho chúng tôi.</span>
+			<pre>Chúng tôi luôn sẵn sàng giải đáp thắc mắc và
+lắng nghe góp ý của bạn! </pre>
+			<a href="#">Góp ý ở đây.</a>
+		</div>
+
+		<!-- thong tin chi tiet phong tro -->
+		<div class="col-md-7">
+		<div class="content7">
+			<span style="font-size: 19px;">Thông tin chính</span>
+			<div>
+				<span style="color: grey;">Giá </span>
+				<span style="color: grey;">Diện tích sử dụng </span>
+				<span style="color: grey;">Diện tích đất</span>
+				<span style="color: grey;">Ngày đăng</span>
+				<span style="color: grey;">Mã BDS</span>
+			</div>
+			<div>
+				<span>: 5 triệu</span>
+				<span>: 25m2</span>
+				<span>: 25m2</span>
+				<span>: 8/3/2019</span>
+				<span>: 123</span>
+			</div>
+			<div style="margin-left: 200px;">
+				<span style="color: grey;">Phòng ngũ </span>
+				<span style="color: grey;">Phòng tắm </span>
+				<span style="color: grey;">Pháp lý </span>
+				<span style="color: grey;">Hướng</span>
+
+			</div>
+			<div>
+				<span>: 5</span>
+				<span>: 2</span>
+				<span>: Không có</span>
+				<span>: Không có</span>
+			</div>
+			<span style="font-size: 19px;">Mô tả chi tiết.</span>
+			<pre>		Công ty cp bất động sản THE GOLDENHOME chuyên cho thuê căn hộ dịch vụ giá rẻ.
+	-Đặc biệt đầy đủ nội thất bao gồm:tủ,giường, bàn, ghế, nệm, dụng cụ nấu ăn. Miễn phí máy giặt.
+	-giờ giất tự do thoải con gà mái, có bảo vệ 24/24, có hầm giữ xe.
+	- vị trí thuận lợi, cách lotte mat q7 5p chạy xe, cách q4 q7 10 p chạy xe, ko kẹt xe ko ngập úng.
+			</pre>
+		</div>
+		</div>
+
+		<div class="col-md-7"><!-- ban do -->
+			<span style="font-size: 19px;">Bản đồ</span>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15672.648413464822!2d106.80059291464849!3d10.875272425246463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9ad5bf%3A0xafa66f9c8be3c91!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2jhu4cgVGjDtG5nIHRpbiDEkEhRRyBUUC5IQ00!5e0!3m2!1svi!2s!4v1552049926318" width="520" height="450" frameborder="0" style="margin: 10px 10px 10px 10px;border:0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<hr/>
+	 <div class="footer">
+        	<div id="ndfooter">
+			<p id= "logo2" href="#trangchu" style="font-size: 15px;"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>            <p>Phone: 0362365847</p>
+            <p>Địa Chỉ: ktx khu B ĐHQG TP.HCM</p>
+            <p>Gmail: nguyenvinhnam1997@gmail.com</p>
+            <p>
+                <a href="https://www.facebook.com/profile.php?id=100005539327576">
+                <img src="folder/fb.png" alt="FACE" style="height: 40px;width: 40px">
+                </a>
+                <a href="https://www.youtube.com/channel/UC1ny2GCfd25AwwNW1t-iCkg?view_as=subscriber">
+                    <img src="folder/youtu.png" alt="YOUTUBE" style="height: 40px; width: 40px;">
+                </a>
+            </p>
+        </div>
+        </div>
+</body>
+</html>

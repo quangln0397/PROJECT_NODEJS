@@ -1,0 +1,69 @@
+table{
+	border-collapse: collapse;
+}
+.title{
+	background-color: #04457C;
+	color:white;
+	font-weight: bolder;
+	font-family:Arial;
+	height:20px;
+}
+.title p{
+	margin-left: 10px;
+}
+#warning{
+	background-color: #D9534F;
+	padding:0.5em 10px;
+	color:white;
+	font-family:arial;
+	width:630px;
+	font-weight: normal;
+
+}
+#notify1{
+	background-color: #DFF0D8;
+	padding:0.5em 10px;
+	font-family:arial;
+	width:630px;	
+	font-weight: normal;	
+}
+#notify2{
+	background-color: #DFF0D8;
+	padding:0.5em 10px;
+	font-family:arial;
+	width:630px;	
+	font-weight: normal;	
+}
+#notify3{
+	background-color: #DFF0D8;
+	padding:0.5em 10px;
+	font-family:arial;
+	width:630px;	
+	font-weight: normal;	
+}
+
+.noidung p{
+	margin-left:10px;
+	font-weight: bold;
+	font-family:arial;
+	font-size:0.9em;
+}
+
+.textbox{
+	height:25px;
+
+}
+
+#dropdowndoituongchothue {
+	width:150px;
+}
+#dropdowntinhthanhpho{
+	width:200px;
+	height:40px;
+	margin-left: 10px;
+}
+#dropdownquanhuyen{
+	width:200px;
+	height:40px;
+	margin-left: 10px;
+}

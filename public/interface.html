@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            li{
+                float: right;
+            }
+            select{
+            
+                height: 40px;
+            }
+            li a{
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+                background-color: powderblue;
+                width: 80px;
+            }
+            li a:hover {
+                background: blue;
+            }
+            div {
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul style="list-style-type: none;margin: 0;padding: 0;overflow: hidden;background-color: powderblue;">
+                <li><a href="#dangky">Đăng Ký</a></li>
+                <li><a href="#dangnhap">Đăng Nhập</a></li>
+                <li><a href="#timkiem">Tìm Kiếm</a></li>
+            </ul>
+        </div>
+        <div style="text-align: center;">
+            <select style="width: 180px;height: 50px">
+                <option value="loai">Loại</option>
+                <option value="phongtro">Phòng trọ</option>
+                <option value="nhanguyencan">Nhà nguyên căn</option>
+                <option value="canho">Căn hộ</option>
+            </select>
+            <select style="width: 200px;height: 50px;">
+                    <option value="city">Tỉnh/Thành phố</option>
+                    <option value="hcm">TP HCM</option>
+                    <option value="hn">Hà Nội</option>
+                    <option value="dn">Đà Nẵng</option>
+                </select>
+            <select style="width: 180px;height: 50px;">
+                <option value="quan">Quận/Huyện</option>
+                <option value="quan1">Quận 1</option>
+                <option value="quan2">Quận 2</option>
+                <option value="quan3">Quận 3</option>
+            </select>
+            <select style="width: 200px;height: 50px;">
+                <option value="gia">Giá</option>
+                <option value="duoi2tr">Dưới 2.000.000</option>
+                <option value="2trden5tr">2.000.000 - 5.000.000</option>
+                <option value="tren5tr">Trên 5.000.000</option>
+            </select>
+        </div>
+    </body>
+</html>

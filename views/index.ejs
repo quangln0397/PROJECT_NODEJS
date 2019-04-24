@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link  type = "text/css" href = "index.css" rel = "stylesheet" media = "screen">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<title>Trang chu</title>
+<script src="https://unpkg.com/react@16.4.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@16.4.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+ <style>
+            select{
+
+                height: 40px;
+            }
+            li{
+                float: right;
+            }
+             a{
+
+				font-family:arial;
+				font-size:15px;
+                display: inline;
+         		color:black;
+                text-align: center;
+                padding: 16px;
+                text-decoration: none;
+                width: 80px;
+
+            }
+             a:hover {
+                color: orange;
+                text-decoration: none
+
+            }
+            #search{
+             text-align: center;
+             background: #262637;
+
+            }
+            .col-md-12 {
+                width:100%;
+                color: black;
+                background: #E9E9E9;}
+            }
+            #logo1{
+            	font-family:Comic sans MS;
+            	font-weight:600;
+            	font-size:18px;
+            	text-decoration: none;
+            	color:black;
+            	display:inline;
+            	margin-left: 130px;
+            	padding-right:200px;
+            }
+            #logo2{
+            	font-family:Comic sans MS;
+            	font-weight:600;
+            	font-size:18px;
+            	text-decoration: none;
+            	color:black;
+            	display:inline;
+              margin-left: 130px;
+            	padding-right:200px;
+            }
+            .header{
+              background-image: url("imgbackground.jpg");
+              height:70px;
+            }
+
+            ul{
+            	list-style: none;
+            	margin-top:10px;
+            }
+         	#ndfooter{
+         		margin-left:100px;
+         	}
+    #kq{
+    	margin-top: 1em;
+    }
+
+        </style>
+</head>
+<body>
+	<script>
+		function changeImage(){
+			if(document.getElementById("thatim").src.match("anh/tim1.png"))
+			{
+			document.getElementById("thatim").src = "anh/tim2.png";
+			}
+		 	else if(document.getElementById("thatim").src.match("anh/tim2.png"))
+		 	{
+			document.getElementById("thatim").src = "anh/tim1.png";
+			}
+		}
+	</script>
+	  <div class="header" id="myHeader">
+              <br/>
+            	<a id= "logo2" href="#trangchu"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
+                <a href="#dangky"><b>Phòng cho thuê</b></a>
+                <a href="#timkiem"><b>Nhà cho thuê</b></a>
+                <a href="#timkiem" >Tìm kiếm</a>
+                <a href="#dangnhap">Đăng Nhập</a>
+             	<a href="#hotro">Hỗ trợ</a>
+                <a href="lienhe">Liên hệ</a>
+              	  <input type="submit" value="Đăng Tin" class="btn btn-info" onclick="window.location.href='dangtin'"/>
+        </div>
+        <div id="search" >
+        	<ul class="btn-group round">
+            <li><select class="button" style="width: 200px;height: 35px">
+                <option value="loai">Loại</option>
+                <option value="phongtro">Phòng trọ</option>
+                <option value="nhanguyencan">Nhà nguyên căn</option>
+                <option value="canho">Căn hộ</option>
+            </select>
+            <li><select  class="button" style="width: 210px;height: 35px;">
+                    <option value="city">Tỉnh/Thành phố</option>
+                    <option value="hcm">TP HCM</option>
+                    <option value="hn">Hà Nội</option>
+                    <option value="dn">Đà Nẵng</option>
+                </select>
+            <li><select  class="button" style="width: 210px;height: 35px;">
+                <option value="quan">Quận/Huyện</option>
+                <option value="quan1">Quận 1</option>
+                <option value="quan2">Quận 2</option>
+                <option value="quan3">Quận 3</option>
+            </select>
+            <li><select  class="button" style="width: 200px;height: 35px;">
+                <option value="gia">Giá</option>
+                <option value="duoi2tr">Dưới 2.000.000</option>
+                <option value="2trden5tr">2.000.000 - 5.000.000</option>
+                <option value="tren5tr">Trên 5.000.000</option>
+            </select>
+            <li><button id="searchButton"><b>Tìm Kiếm</button>
+        </div>
+        <hr/>
+
+        <h5 style="font-family: arial;  margin-left: 100px; margin-top: 20px;">Cho thuê phòng trọ, nhà trọ giá rẻ tại Việt Nam</h5>
+
+        <div class="maindiv">
+          <div class="row">
+
+
+
+		<div class="col-md-7" >
+				<p id="kq" style="font-size:13px">Kết quả: 1-15 trong 42500</p>
+			<hr/>
+			<div id="danhsachphongtro">
+			</div>
+			<script src="xulyreact.js" type="text/babel"></script>
+		</div>
+    <div style="background-color: #FFFFFF; border: 1px solid #D3D3D3; border-radius: 4px;" class="col-md-4" ><!-- trang tin tức(content3) -->
+
+			<div class="content3title">
+				<h5>Tin mới</h5>
+			</div>
+
+			<div class="tintuc">
+				<img src="anh/phong4.jpg">
+				<div class="link2">
+				<b>Phòng mới xây có gác lững máy lạnh</b>
+					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">2.000.000 đ/tháng</span>
+				</div>
+			</div>
+			<div class="tintuc">
+				<img src="anh/phong5.jpg">
+				<div class="link2">
+					<b>Phòng mới xây có gác lững máy lạnh</b>
+					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">3.500.000 đ/tháng</span>
+				</div>
+			</div>
+			<div class="tintuc">
+				<img src="anh/phong6.jpg">
+				<div class="link2">
+					<b>Phòng mới xây có gác lững máy lạnh</b>
+					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">2.800.000 đ/tháng</span>
+				</div>
+			</div>
+
+		</div>
+		<div clas="col-md-1">
+
+		</div class="col-md-1">
+  </div>
+
+
+
+	</div>
+	<br/>
+  <div class="footer">
+    <div id="ndfooter">
+			<p id= "logo1" href="#trangchu" style="font-size: 15px; font-family:Comic sans MS;;"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>
+        </div>
+		</div>
+
+
+</body>
+</html>
