@@ -4,9 +4,19 @@
 
 <link  type = "text/css" href = "index.css" rel = "stylesheet" media = "screen">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="fullclip.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+
 <title>Trang chu</title>
 <script src="https://unpkg.com/react@16.4.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@16.4.2/umd/react-dom.production.min.js"></script>
@@ -16,9 +26,21 @@
 
  <style>
             select{
-
+               text-indent: 90px;
                 height: 40px;
+                box-shadow: 1px 1px 5px #330033
             }
+            select:hover{
+              background-color: #EFF0F1;
+            }
+
+            #selectloaiphong{
+              text-indent:90px;
+            }
+            #selectmucgia{
+                text-indent:90px;
+            }
+
             li{
                 float: right;
             }
@@ -39,11 +61,20 @@
                 text-decoration: none
 
             }
-            #search{
-             text-align: center;
-             background: #262637;
 
+
+
+
+            #search{
+            height:660px;
+             text-align: center;
+             background-image: url("https://webcdn.executivecentre.com.cn/wp-content/uploads/2018/05/2018_5_2_Blog-image.jpg");
+             background-size: cover;
+             padding-top:95px;
+             -moz-box-shadow:    0px 0px 5px 2px #282a2d;
+             -webkit-box-shadow: 0px 0px 5px 2px #282a2d;
             }
+
             .col-md-12 {
                 width:100%;
                 color: black;
@@ -70,8 +101,13 @@
             	padding-right:200px;
             }
             .header{
-              background-image: url("imgbackground.jpg");
-              height:70px;
+              /*background-image: url("http://sohanews.sohacdn.com/thumb_w/660/2016/xin-dung-than-phien-viet-nam-cham-chap-8-1468473294003-crop-1468473305009-1468492422237-0-0-306-600-crop-1468492471123.jpg");*/
+              background-color: white;
+              background-size: cover;
+              height:90px;
+              position: fixed;
+              z-index:1;
+              width:100%;
             }
 
             ul{
@@ -100,104 +136,165 @@
 			}
 		}
 	</script>
+
 	  <div class="header" id="myHeader">
               <br/>
-            	<a id= "logo2" href="#trangchu"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
-                <a href="#dangky"><b>Phòng cho thuê</b></a>
-                <a href="#timkiem"><b>Nhà cho thuê</b></a>
-                <a href="#timkiem" >Tìm kiếm</a>
-                <a href="#dangnhap">Đăng Nhập</a>
-             	<a href="#hotro">Hỗ trợ</a>
-                <a href="lienhe">Liên hệ</a>
-              	  <input type="submit" value="Đăng Tin" class="btn btn-info" onclick="window.location.href='dangtin'"/>
+            	<a id= "logo2" href="/"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
+              <!--  <a href="#dangky"><b>Phòng cho thuê</b></a> -->
+              <!--  <a href="#timkiem"><b>Nhà cho thuê</b></a> -->
+
+
+                <span style="margin-left:220px;"><input type="submit" value="Đăng Tin" class="btn btn-success" onclick="window.location.href='dangtin'"/><span>
+
+                <span style="margin-left:0px;">
+
+              <img id="avatar" src="http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg" style="visibility: hidden; height:60px; width:80px">
+
+                <a href="logout" id="user" style="color:green; font-size:150%"></a>
+              <small><a href="/dangnhap" id="loginout"> <i style="color:green" class="fa fa-2x fa-user-circle"></i>&emsp;<b>ĐĂNG NHẬP</b>
+                </a>
+              </small></span>
+<!--http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg-->
+                <% var user; if(typeof user !== "undefined"){%>
+
+                                                                <script>
+                                                                <%if(typeof user[0].avatar !== "undefined"){%>
+                                                                  document.getElementById("avatar").src="<%=user[0].avatar%>";
+                                                                  <%}%>
+
+                                                                document.getElementById("avatar").style.visibility = "visible";
+                                                                var user = document.getElementById("user");
+                                                                user.href="/dangxuat";
+                                                                user.innerHTML= "<strong><%=user[0].username%></strong>";
+                                                                var loginout = document.getElementById("loginout")
+                                                                  loginout.style.visibility="hidden"
+                                                                  //loginout.innerHTML="<b>Thoát</b>";
+                                                                  //loginout.href="/dangxuat"</script>
+
+                                                            <%}%>
+
         </div>
+
+
         <div id="search" >
+          <p style="color:white;font-family:Comfortaa; font-size:47px;margin-top:130px;"><b>Chọn loại phòng bạn muốn tìm</b></p>
         	<ul class="btn-group round">
-            <li><select class="button" style="width: 200px;height: 35px">
-                <option value="loai">Loại</option>
-                <option value="phongtro">Phòng trọ</option>
-                <option value="nhanguyencan">Nhà nguyên căn</option>
-                <option value="canho">Căn hộ</option>
-            </select>
-            <li><select  class="button" style="width: 210px;height: 35px;">
+            <li><select class="button" id="selectloaiphong" style="width: 310px;height: 50px">
+                <option class="lt" value="loai">Loại Phòng</option>
+                <option class="lt" value="phongtro">Phòng trọ</option>
+                <option class="lt" value="nhanguyencan">Nhà nguyên căn</option>
+                <option class="lt"value="canho">Căn hộ</option>
+            </select></li>
+            <li><select  class="button" style="width: 310px;height: 50px; margin-left:10px;">
                     <option value="city">Tỉnh/Thành phố</option>
                     <option value="hcm">TP HCM</option>
-                    <option value="hn">Hà Nội</option>
-                    <option value="dn">Đà Nẵng</option>
-                </select>
-            <li><select  class="button" style="width: 210px;height: 35px;">
+                </select></li>
+            <li><select  class="button" style="width: 310px;height: 50px;margin-left:10px; text-align:center;">
                 <option value="quan">Quận/Huyện</option>
                 <option value="quan1">Quận 1</option>
                 <option value="quan2">Quận 2</option>
                 <option value="quan3">Quận 3</option>
-            </select>
-            <li><select  class="button" style="width: 200px;height: 35px;">
-                <option value="gia">Giá</option>
+            </select></li>
+            <li><select  class="button" id="selectmucgia" style="width: 310px;height: 50px;margin-left:10px;">
+                <option value="gia">Mức Giá</option>
                 <option value="duoi2tr">Dưới 2.000.000</option>
                 <option value="2trden5tr">2.000.000 - 5.000.000</option>
                 <option value="tren5tr">Trên 5.000.000</option>
-            </select>
-            <li><button id="searchButton"><b>Tìm Kiếm</button>
-        </div>
-        <hr/>
+            </select></li>
+            <!--<li><button id="searchButton"><b>Tìm Kiếm <i class="fa fa-search"></i></button></li>-->
+            </ul>
+            <button id="searchButton"><b>Tìm Kiếm <i class="fa fa-search" aria-hidden="true"></i></button>
 
-        <h5 style="font-family: arial;  margin-left: 100px; margin-top: 20px;">Cho thuê phòng trọ, nhà trọ giá rẻ tại Việt Nam</h5>
+        </div>
+
+        <div id="DIV_1">
+          <center><span style="font-size:25px; margin-top:20px; font-family:Helvetica"><br/><br/>Danh Sách Phòng Tại Các Thành Phố Được Tìm Kiếm Nhiều</span></center>
+  	<div id="DIV_5">
+      <div class="outer_div">
+  		<div id="DIV_6");>
+  			<a href="/zing-chart-tuan/bai-hat-Viet-Nam/IWZ9Z08I.html" id="A_7" ><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Nẵng</b></span></a>
+  		</div>
+    </div>
+  		<div id="DIV_9">
+  			<a href="/zing-chart-tuan/MV-Viet-Nam/IWZ9Z08W.html" id="A_10"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Hồ Chí Minh</b></span></a>
+  		</div>
+  		<div id="DIV_12">
+  			<a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13""><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Huế</b></span></a>
+  		</div>
+  		<div id="DIV_15">
+  			<a href="/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Nha Trang</b></span></a>
+  		</div>
+      <div id="DIV_18">
+        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Lạt</b></span></a>
+      </div>
+      <div id="DIV_21">
+        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Vũng Tàu</b></span></a>
+      </div>
+      <div id="DIV_24">
+        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Phú Quốc</b></span></a>
+      </div>
+
+      <div id="DIV_27">
+        <a href="/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Cần Thơ</b></span></a>
+      </div>
+
+
+  	</div>
+  </div>
 
         <div class="maindiv">
           <div class="row">
-
-
-
+    <div class="col-md-1">
+    </div>
 		<div class="col-md-7" >
-				<p id="kq" style="font-size:13px">Kết quả: 1-15 trong 42500</p>
+      <h5 style="font-family: arial; margin-top: 20px; color:green;">PHÒNG TRỌ, CĂN HỘ, NHÀ NGUYÊN CĂN</h5>
 			<hr/>
 			<div id="danhsachphongtro">
 			</div>
 			<script src="xulyreact.js" type="text/babel"></script>
 		</div>
-    <div style="background-color: #FFFFFF; border: 1px solid #D3D3D3; border-radius: 4px;" class="col-md-4" ><!-- trang tin tức(content3) -->
+    <div class="col-md-4" ><!-- trang tin tức(content3) -->
+      <br/>
 
-			<div class="content3title">
-				<h5>Tin mới</h5>
-			</div>
+          <div class="danhmucchothue" style=" width:80%; background-color:#FFEFD5	; margin-left:18px; padding:10px;">
+            <h5 style="color: #3D4D65;margin-left:14px">Danh Mục Cho Thuê</h5>
+            <hr style="margin:5px"/>
+            <a href="" style="color:green" ><i style="color:green" class="fa fa-home"></i> Cho thuê phòng trọ tại Hồ Chí Minh</a><br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê cặn hộ tại Hồ Chí Minh</a><br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê căn hộ tại Hà Nội</a><br/>
+           <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê phòng trọ tại Hà Nội</a><br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê phòng trọ tại Đà Nẵng</a><br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê căn hộ tại Đà Nẵng</a> <br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê phòng trọ tại Cần Thơ</a><br/>
+            <a href="" style="color:green"><i style="color:green" class="fa fa-home"></i> Cho thuê căn hộ tại Cần Thơ</a> <br/>
+      </div>
 
-			<div class="tintuc">
-				<img src="anh/phong4.jpg">
-				<div class="link2">
-				<b>Phòng mới xây có gác lững máy lạnh</b>
-					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">2.000.000 đ/tháng</span>
-				</div>
-			</div>
-			<div class="tintuc">
-				<img src="anh/phong5.jpg">
-				<div class="link2">
-					<b>Phòng mới xây có gác lững máy lạnh</b>
-					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">3.500.000 đ/tháng</span>
-				</div>
-			</div>
-			<div class="tintuc">
-				<img src="anh/phong6.jpg">
-				<div class="link2">
-					<b>Phòng mới xây có gác lững máy lạnh</b>
-					<span class="span4" style="color:#BB0000; font-weight: 700;font-size:16px;margin-top: 5px;">2.800.000 đ/tháng</span>
-				</div>
-			</div>
+      <br/>
+        <img src="anh/background1.png" width="80%" style="margin-left:20px">
+        <p></p>
+        <img src="anh/background2.png" width="80%" style="margin-left:20px">
+        <p></p>
 
 		</div>
-		<div clas="col-md-1">
 
-		</div class="col-md-1">
+
+
   </div>
 
 
 
 	</div>
-	<br/>
+
   <div class="footer">
     <div id="ndfooter">
-			<p id= "logo1" href="#trangchu" style="font-size: 15px; font-family:Comic sans MS;;"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>
+			<p id= "logo1" href="/" style="font-size: 15px; font-family:Comic sans MS; color:white"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>
+              <% var user; if(typeof user !== "undefined"){%>
+                                                  <div id="cookieUser">  <%=user[0].username%></div>
+                                                    <small><a href="/dangxuat">Đăng xuất</a></small>
+                                                  <%}%>
         </div>
 		</div>
+
 
 
 </body>

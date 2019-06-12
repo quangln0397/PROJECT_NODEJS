@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Cập nhật thông tin người dùng</title>
+</head>
+<body>
+  <%var user%>
+  <center>
+    <h2 style="color:red">Thông tin người dùng</h2>
+    <img src="<%=user[0].avatar%>" height="120" weight="120"><br/>
+    <b>Tên đăng nhập:</b>&emsp; <%=user[0].username%><br/>
+    <b>Số điện thoại:</b>&emsp; <%=user[0].SDT%><br/>
+    <b>Email:</b>&emsp; <%=user[0].Email%><br/>
+  <form action="/updateUser" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="avatarUser" accept="image/*" /><br/>
+    <input type="submit" name="submit"/>
+  </center>
+
+
+  </form>
+</body>
+</html>
+
+
+<!-- modal box https://www.w3schools.com/bootstrap/bootstrap_ref_js_modal.asp--!>
+<!-- glyphcon --!>

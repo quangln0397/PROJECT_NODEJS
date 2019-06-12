@@ -1,7 +1,17 @@
+var form = {
+  boxSizing: "border-box",
+
+
+   boxShadow: "2px 2px 5px 1px rgba(0, 0, 0, 0.2)",
+
+   borderRadius: "3px",
+};
+
+
 class ListPhong extends React.Component{
   constructor(props){
     super(props);
-    this.state = {dulieu:[], visible:4};
+    this.state = {dulieu:[], visible:7};
     this.loadMore = this.loadMore.bind(this);
   }
 
@@ -19,11 +29,15 @@ class ListPhong extends React.Component{
     this.setState({visible: this.state.visible + 4});
   }
 
+
   renderPhongTro(){
     return this.state.dulieu.slice(0, this.state.visible).map(function(phong){
       return (
-        <div className="thongtin">
-        <img src= {phong.anhchinh}/>
+        <div style={form}>
+        <div className="thongtin" >
+        <div class="img-hover-zoom img-hover-zoom--xyz">
+        <img src= {phong.img.split(",")[0]} width="200px"/>
+        </div>
         <div className="link1">
         <a href="chitiet"><b>{phong.loai.toUpperCase()}</b></a>
         <span className="span1">{phong.diachi}</span>
@@ -35,11 +49,13 @@ class ListPhong extends React.Component{
         <span className="span2">Ngày đăng: 23/04/2019 | Số lượt xem: 100.</span>
         </div>
         </div>
+        </div>
 
       );
     }
     );
-  }
+  };
+
 
 
   render(){
