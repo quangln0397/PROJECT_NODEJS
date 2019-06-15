@@ -32,14 +32,15 @@ class ListPhong extends React.Component{
 
   renderPhongTro(){
     return this.state.dulieu.slice(0, this.state.visible).map(function(phong){
+
       return (
-        <div style={form}>
+        <div style={form} >
         <div className="thongtin" >
         <div class="img-hover-zoom img-hover-zoom--xyz">
         <img src= {phong.img.split(",")[0]} width="200px"/>
         </div>
         <div className="link1">
-        <a href="chitiet"><b>{phong.loai.toUpperCase()}</b></a>
+        <a href={"/detail/"+ phong.ID}><b>{phong.loai.toUpperCase()}</b></a>
         <span className="span1">{phong.diachi}</span>
         <img src="anh/dientich.png"  style={{height:"30px", width:"30px",marginTop: "5px"}}/> <small>{phong.dientich}m<sup>2</sup></small>
         {phong.wifi!=0&&<img src="anh/wifi.png"  style={{height:"30px", width:"30px", marginLeft:"10px",marginTop: "5px"}}/>}

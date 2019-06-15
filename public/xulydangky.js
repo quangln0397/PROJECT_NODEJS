@@ -5,7 +5,9 @@ var form = {
    marginTop:"80px",
    boxShadow: "2px 2px 5px 1px rgba(0, 0, 0, 0.2)",
    paddingBottom: "40px",
-   borderRadius: "3px"
+   borderRadius: "3px",
+   backgroundColor:"white"
+
 };
 var input = {
   marginLeft:"0px",

@@ -37,30 +37,41 @@ app.use(Passport.session());
 
 var data;
 var userinfor;
+var tinhthanhinfor;
+var quanhuyeninfor;
+var phonginfor;
+var dbo;
+
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
-	var dbo = db.db("PHONGTRO");
+	dbo = db.db("PHONGTRO");
 
+  dbo.collection("tinhthanh").find().toArray(function(err,result){
+    if(err) throw err;
+    tinhthanhinfor = result;
+  });
+  dbo.collection("quanhuyen").find().toArray(function(err,result){
+    if(err) throw err;
+    quanhuyeninfor = result;
+  });
 	dbo.collection("phong").find({}).toArray(function(err,result){
 		if(err) throw err;
-		console.log(result[1].name);
 		data = result;
-		console.log(data[2].name);
-		  db.close();
 	});
   dbo.collection("user").find({}).toArray(function(err,result){
     if(err) throw err;
     userinfor = result;
-    console.log(userinfor[0].username);
-      db.close();
   });
-
-
+    console.log("---Loading for the first time----")
+  setTimeout(function(){
+  app.listen(3000);
+  console.log('Listening on port 3000');
+},5000);
 });
 
-
-app.use(express.static('public'));
+var path = require('path')
+app.use(express.static(path.join(__dirname, 'public')));
 
 
 //cau hinh EJS
@@ -68,18 +79,50 @@ app.set("view engine","ejs");
 app.set("views", "./views");
 
 
-app.listen(3000);
+
 
 
 app.get("/", function(req,res){
   if(req.isAuthenticated()){
-	res.render("index",{data, user:req.user});
+	res.render("index",{data, tinhthanhinfor, quanhuyeninfor, user:req.user});
   console.log(req.user);
   }
   else{
-  res.render("index",{data});
-  }
+  res.render("index",{data, tinhthanhinfor, quanhuyeninfor});
+}/*Lan dau bat server load data cho khoang 5s */
 });
+
+app.post("/", function (req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+        if (err) throw err;
+        var dbo = db.db("PHONGTRO");
+        var query = req.body;
+        dbo.collection("phong").find(query).toArray(function (err, result) {
+            if (err) throw err;
+            console.log(query);
+            data = result;
+            res.render("index", { data, tinhthanhinfor, quanhuyeninfor });
+            db.close();
+        });
+    });
+});
+
+
+app.get("/detail/:idphong", (req,res)=>{
+    dbo.collection("phong").find({ID: req.params.idphong}).toArray(function(err,result){
+    if(err) throw err;
+    phonginfor = result;
+  });
+  setTimeout(function(){
+    if(req.isAuthenticated()){
+      res.render("detail", {phonginfor, user:req.user});
+    }
+    else{
+      res.render("detail", {phonginfor});
+    }
+},500);
+});
+
 
 app.get("/dangtin", function(req,res){
   if(req.isAuthenticated()){
@@ -90,9 +133,6 @@ app.get("/dangtin", function(req,res){
   }
 });
 
-app.get("/chitiet", function(req,res){
-	res.render("detail");
-});
 
 app.post("/", function (req, res) {
 
@@ -159,7 +199,7 @@ app.get("/dangxuat", function(req,res){
       var dbo = db.db("PHONGTRO");
       dbo.collection("user").find({username: username}).toArray(function(err, result){
         if(err) throw err;
-        //console.log(result[0].username);
+        console.log(result[0].username);
         if(result && result[0].password == password){
           return done(null, result);
         }
@@ -223,9 +263,6 @@ app.post("/updateUser", upload.single("avatarUser"), (req,res)=>{ //update Avata
   console.log(req.file);
   //console.log(JSON.stringify(req.body));
   console.log(req.user[0].username);
-  MongoClient.connect(url, function(err, db) {
-  if (err) throw err;
-  var dbo = db.db("PHONGTRO");
     dbo.collection("user").updateOne({username : req.user[0].username}, { $set: { "avatar" : "uploads/" + req.file.filename} }, function(err, res) {
     if (err) throw err;
     console.log("1 document updated");
@@ -235,14 +272,11 @@ app.post("/updateUser", upload.single("avatarUser"), (req,res)=>{ //update Avata
        req.user = result;
        console.log(req.user);
      }
-       db.close();
-
   });
 });
-});
        setTimeout(function(){
-         res.render("index",{data, user:req.user})
-       }, 4000);
+         res.render("index",{data, user:req.user, tinhthanhinfor,quanhuyeninfor});
+       }, 2000);
 
 
 });

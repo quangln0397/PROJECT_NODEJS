@@ -16,6 +16,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<!--Thu vien aos-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 
 <title>Trang chu</title>
 <script src="https://unpkg.com/react@16.4.2/umd/react.production.min.js"></script>
@@ -81,30 +85,32 @@
                 background: #E9E9E9;}
             }
             #logo1{
-            	font-family:Comic sans MS;
+            	font-family::Comfortaa;
             	font-weight:600;
             	font-size:18px;
             	text-decoration: none;
             	color:black;
             	display:inline;
-            	margin-left: 130px;
+            	margin-left: 30px;
             	padding-right:200px;
             }
             #logo2{
-            	font-family:Comic sans MS;
+            	font-family:Comfortaa;
             	font-weight:600;
             	font-size:18px;
             	text-decoration: none;
-            	color:black;
+            	color:#008000;
             	display:inline;
-              margin-left: 130px;
+              margin-left: 40px;
             	padding-right:200px;
             }
             .header{
               /*background-image: url("http://sohanews.sohacdn.com/thumb_w/660/2016/xin-dung-than-phien-viet-nam-cham-chap-8-1468473294003-crop-1468473305009-1468492422237-0-0-306-600-crop-1468492471123.jpg");*/
+              border-bottom: 1px solid black;
+              box-shadow: 5px 5px 15px #2F4F4F;
               background-color: white;
               background-size: cover;
-              height:90px;
+              height:62px;
               position: fixed;
               z-index:1;
               width:100%;
@@ -115,7 +121,7 @@
             	margin-top:10px;
             }
          	#ndfooter{
-         		margin-left:100px;
+         		margin-left:50px;
          	}
     #kq{
     	margin-top: 1em;
@@ -124,6 +130,9 @@
         </style>
 </head>
 <body>
+  <script>
+    AOS.init();
+  </script>
 	<script>
 		function changeImage(){
 			if(document.getElementById("thatim").src.match("anh/tim1.png"))
@@ -136,80 +145,48 @@
 			}
 		}
 	</script>
+  <% var user;%>
+	  <%- include('./partials/header.ejs', {user});%>
 
-	  <div class="header" id="myHeader">
-              <br/>
-            	<a id= "logo2" href="/"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
-              <!--  <a href="#dangky"><b>Phòng cho thuê</b></a> -->
-              <!--  <a href="#timkiem"><b>Nhà cho thuê</b></a> -->
-
-
-                <span style="margin-left:220px;"><input type="submit" value="Đăng Tin" class="btn btn-success" onclick="window.location.href='dangtin'"/><span>
-
-                <span style="margin-left:0px;">
-
-              <img id="avatar" src="http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg" style="visibility: hidden; height:60px; width:80px">
-
-                <a href="logout" id="user" style="color:green; font-size:150%"></a>
-              <small><a href="/dangnhap" id="loginout"> <i style="color:green" class="fa fa-2x fa-user-circle"></i>&emsp;<b>ĐĂNG NHẬP</b>
-                </a>
-              </small></span>
-<!--http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg-->
-                <% var user; if(typeof user !== "undefined"){%>
-
-                                                                <script>
-                                                                <%if(typeof user[0].avatar !== "undefined"){%>
-                                                                  document.getElementById("avatar").src="<%=user[0].avatar%>";
-                                                                  <%}%>
-
-                                                                document.getElementById("avatar").style.visibility = "visible";
-                                                                var user = document.getElementById("user");
-                                                                user.href="/dangxuat";
-                                                                user.innerHTML= "<strong><%=user[0].username%></strong>";
-                                                                var loginout = document.getElementById("loginout")
-                                                                  loginout.style.visibility="hidden"
-                                                                  //loginout.innerHTML="<b>Thoát</b>";
-                                                                  //loginout.href="/dangxuat"</script>
-
-                                                            <%}%>
-
-        </div>
-
-
-        <div id="search" >
-          <p style="color:white;font-family:Comfortaa; font-size:47px;margin-top:130px;"><b>Chọn loại phòng bạn muốn tìm</b></p>
+        <div id="search" data-aos="fade-up" data-aos-duration="1000" >
+        <p style="color:white;font-family:Comfortaa; font-size:47px;margin-top:130px;"><b>Chọn loại phòng bạn muốn tìm</b></p>
+          <form action="/" method="post">
         	<ul class="btn-group round">
-            <li><select class="button" id="selectloaiphong" style="width: 310px;height: 50px">
-                <option class="lt" value="loai">Loại Phòng</option>
+            <li><select class="button" name="loai" id="selectloaiphong" style="width: 310px;height: 50px">
+                <option class="lt"  value="" disabled selected>Loại Phòng</option>
                 <option class="lt" value="phongtro">Phòng trọ</option>
                 <option class="lt" value="nhanguyencan">Nhà nguyên căn</option>
                 <option class="lt"value="canho">Căn hộ</option>
             </select></li>
-            <li><select  class="button" style="width: 310px;height: 50px; margin-left:10px;">
-                    <option value="city">Tỉnh/Thành phố</option>
-                    <option value="hcm">TP HCM</option>
+            <li><select  class="button" name="tinhthanh" style="width: 310px;height: 50px; margin-left:10px;">
+                    <option  value="" disabled selected>Tỉnh/Thành phố</option>
+                    <% for(var i=0;i<tinhthanhinfor.length;i++){%>
+                      <option value="quan1"><%=tinhthanhinfor[i].tinhthanh%></option>
+                      <%}%>
                 </select></li>
-            <li><select  class="button" style="width: 310px;height: 50px;margin-left:10px; text-align:center;">
-                <option value="quan">Quận/Huyện</option>
-                <option value="quan1">Quận 1</option>
-                <option value="quan2">Quận 2</option>
-                <option value="quan3">Quận 3</option>
+            <li><select  class="button" name="quan" style="width: 310px;height: 50px;margin-left:10px; text-align:center; ">
+                <option  value="" disabled selected>Quận/Huyện</option>
+              <% for(var i=0;i<quanhuyeninfor.length;i++){%>
+                <option value="quan1" style="color:black;"><%=quanhuyeninfor[i].quanhuyen%></option>
+                <%}%>
             </select></li>
-            <li><select  class="button" id="selectmucgia" style="width: 310px;height: 50px;margin-left:10px;">
-                <option value="gia">Mức Giá</option>
-                <option value="duoi2tr">Dưới 2.000.000</option>
-                <option value="2trden5tr">2.000.000 - 5.000.000</option>
-                <option value="tren5tr">Trên 5.000.000</option>
+            <li><select  class="button" name="mucgia" id="selectmucgia" style="width: 310px;height: 50px;margin-left:10px;">
+                <option  value="" disabled selected>Mức Giá</option>
+                <option value="muc 1">Dưới 2.000.000</option>
+                <option value="muc 2">2.000.000 - 5.000.000</option>
+                <option value="muc 3">Trên 5.000.000</option>
             </select></li>
             <!--<li><button id="searchButton"><b>Tìm Kiếm <i class="fa fa-search"></i></button></li>-->
             </ul>
             <button id="searchButton"><b>Tìm Kiếm <i class="fa fa-search" aria-hidden="true"></i></button>
+            </form>
 
         </div>
 
-        <div id="DIV_1">
+        <div id="DIV_1"  data-aos="fade-up" data-aos-duration="1000" >
           <center><span style="font-size:25px; margin-top:20px; font-family:Helvetica"><br/><br/>Danh Sách Phòng Tại Các Thành Phố Được Tìm Kiếm Nhiều</span></center>
-  	<div id="DIV_5">
+          <center>
+    <div id="DIV_5">
       <div class="outer_div">
   		<div id="DIV_6");>
   			<a href="/zing-chart-tuan/bai-hat-Viet-Nam/IWZ9Z08I.html" id="A_7" ><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Nẵng</b></span></a>
@@ -237,6 +214,7 @@
       <div id="DIV_27">
         <a href="/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Cần Thơ</b></span></a>
       </div>
+    </center>
 
 
   	</div>
@@ -246,14 +224,16 @@
           <div class="row">
     <div class="col-md-1">
     </div>
-		<div class="col-md-7" >
+		<div class="col-md-7" data-aos="fade-up"
+     data-aos-duration="1000" >
       <h5 style="font-family: arial; margin-top: 20px; color:green;">PHÒNG TRỌ, CĂN HỘ, NHÀ NGUYÊN CĂN</h5>
 			<hr/>
 			<div id="danhsachphongtro">
 			</div>
 			<script src="xulyreact.js" type="text/babel"></script>
 		</div>
-    <div class="col-md-4" ><!-- trang tin tức(content3) -->
+    <div data-aos="fade-up"
+     data-aos-duration="1000" class="col-md-4" ><!-- trang tin tức(content3) -->
       <br/>
 
           <div class="danhmucchothue" style=" width:80%; background-color:#FFEFD5	; margin-left:18px; padding:10px;">
@@ -274,6 +254,11 @@
         <p></p>
         <img src="anh/background2.png" width="80%" style="margin-left:20px">
         <p></p>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript">var scrolltotop={setting:{startline:100,scrollto:0,scrollduration:1e3,fadeduration:[500,100]},controlHTML:'<img src="https://i1155.photobucket.com/albums/p559/scrolltotop/arrow34.png" />',controlattrs:{offsetx:5,offsety:5},anchorkeyword:"#top",state:{isvisible:!1,shouldvisible:!1},scrollup:function(){this.cssfixedsupport||this.$control.css({opacity:0});var t=isNaN(this.setting.scrollto)?this.setting.scrollto:parseInt(this.setting.scrollto);t="string"==typeof t&&1==jQuery("#"+t).length?jQuery("#"+t).offset().top:0,this.$body.animate({scrollTop:t},this.setting.scrollduration)},keepfixed:function(){var t=jQuery(window),o=t.scrollLeft()+t.width()-this.$control.width()-this.controlattrs.offsetx,s=t.scrollTop()+t.height()-this.$control.height()-this.controlattrs.offsety;this.$control.css({left:o+"px",top:s+"px"})},togglecontrol:function(){var t=jQuery(window).scrollTop();this.cssfixedsupport||this.keepfixed(),this.state.shouldvisible=t>=this.setting.startline?!0:!1,this.state.shouldvisible&&!this.state.isvisible?(this.$control.stop().animate({opacity:1},this.setting.fadeduration[0]),this.state.isvisible=!0):0==this.state.shouldvisible&&this.state.isvisible&&(this.$control.stop().animate({opacity:0},this.setting.fadeduration[1]),this.state.isvisible=!1)},init:function(){jQuery(document).ready(function(t){var o=scrolltotop,s=document.all;o.cssfixedsupport=!s||s&&"CSS1Compat"==document.compatMode&&window.XMLHttpRequest,o.$body=t(window.opera?"CSS1Compat"==document.compatMode?"html":"body":"html,body"),o.$control=t('<div id="topcontrol">'+o.controlHTML+"</div>").css({position:o.cssfixedsupport?"fixed":"absolute",bottom:o.controlattrs.offsety,right:o.controlattrs.offsetx,opacity:0,cursor:"pointer"}).attr({title:"Scroll to Top"}).click(function(){return o.scrollup(),!1}).appendTo("body"),document.all&&!window.XMLHttpRequest&&""!=o.$control.text()&&o.$control.css({width:o.$control.width()}),o.togglecontrol(),t('a[href="'+o.anchorkeyword+'"]').click(function(){return o.scrollup(),!1}),t(window).bind("scroll resize",function(t){o.togglecontrol()})})}};scrolltotop.init();</script>
+      <noscript>Not seeing a <a href="https://www.scrolltotop.com/">Scroll to Top Button</a>? Go to our FAQ page for more info.</noscript>
+
 
 		</div>
 
@@ -284,16 +269,12 @@
 
 
 	</div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <div class="footer">
-    <div id="ndfooter">
-			<p id= "logo1" href="/" style="font-size: 15px; font-family:Comic sans MS; color:white"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>
-              <% var user; if(typeof user !== "undefined"){%>
-                                                  <div id="cookieUser">  <%=user[0].username%></div>
-                                                    <small><a href="/dangxuat">Đăng xuất</a></small>
-                                                  <%}%>
-        </div>
-		</div>
+  <%- include('./partials/footer.ejs') %>
+
+
+
 
 
 

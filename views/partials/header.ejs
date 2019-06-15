@@ -1,0 +1,47 @@
+<div class="header" id="myHeader" data-aos="fade-up" data-aos-duration="1000">
+          <a id= "logo2" href="/"><img src="../folder/logo1.png" style="height:40px;width:50px; margin-bottom: 10px;"><i><b>Tìmphòngnhanh</b></i></a>
+          <!--  <a href="#dangky"><b>Phòng cho thuê</b></a> -->
+          <!--  <a href="#timkiem"><b>Nhà cho thuê</b></a> -->
+
+
+
+            <span style="margin-left:380px;">
+
+          <img id="avatar" src="http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg" style="visibility: hidden; height:50px; width:60px;">
+
+            <select id="select" name="forma" onchange="location = this.value;" style="visibility: hidden; width:18px; height:10px; padding-bottom:20px; box-shadow:none;">
+            <option value="#"></option>
+            <option value="http://localhost:3000/updateUser">Cập nhật thông tin</option>
+            <option value="http://localhost:3000/dangxuat">Thoát</option>
+          </select>
+            <a href="/dangnhap" id="user" style="font-size:80%; posi
+          <small><a href="/dangnhap" id="loginout"> &emsp;<b><span style="color:black;height:100%;">ĐĂNG NHẬP</span></b>
+            </a>
+          </small></span>
+<!--http://greenwings.co/wp-content/uploads/2018/09/blank-head-profile-pic-for-a-man.jpg-->
+            <% var user; if(typeof user !== "undefined"){%>
+
+                                                            <script>
+                                                            <%if(typeof user[0].avatar !== "undefined"){%>
+                                                              document.getElementById("avatar").src="../<%=user[0].avatar%>";
+                                                              <%}%>
+                                                            document.getElementById("select").style.visibility = "visible"
+                                                            document.getElementById("avatar").style.visibility = "visible";
+                                                            var user = document.getElementById("user");
+                                                            user.href="/dangxuat";
+                                                            user.innerHTML= "";
+                                                            var loginout = document.getElementById("loginout")
+                                                              //loginout.style.visibility="hidden"
+
+                                                              loginout.parentNode.removeChild(loginout);
+
+                                                              //loginout.innerHTML="<b>Thoát</b>";
+                                                              //loginout.href="/dangxuat"</script>
+
+                                                        <%}%>
+    <span style="margin-left:0px;"><input type="submit" value="Đăng Tin" class="buttondangtin" onclick="window.location.href='http://localhost:3000/dangtin'";
+"/><span>
+
+
+
+    </div>

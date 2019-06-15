@@ -1,14 +1,92 @@
 *{
 	margin: 0px;
+	padding:0px;
+}
+.buttondangtin{
+	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
+	height:50%;
+	color: #00A855;
+	background-color: white;
+}
+.buttondangtin:hover{
+	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
+	height:50%;
+	color: white;
+	background-color:  #00A855;
+}
 
+#avatar{
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
 }
 .maindiv{
-	margin-left: 200px;
-	width: 1000px;
-	height:730px;
+	background-color: #F3F3F3		;
+	padding-top:95px;
+}
+
+select{
+	 text-indent: 90px;
+		height: 40px;
+		box-shadow: 1px 1px 5px #330033
+}
+select:hover{
+	background-color: #EFF0F1;
+}
+
+#selectloaiphong{
+	text-indent:90px;
+}
+#selectmucgia{
+		text-indent:90px;
+}
+
+li{
+		float: right;
+}
+ a{
+
+font-family:arial;
+font-size:15px;
+		display: inline;
+color:black;
+		text-align: center;
+		padding: 16px;
+		text-decoration: none;
+		width: 80px;
+
+}
+ a:hover {
+		color: orange;
+		text-decoration: none
 
 }
 
+#logo2{
+	font-family:Comfortaa;
+	font-weight:600;
+	font-size:18px;
+	text-decoration: none;
+	color:#008000;
+	display:inline;
+	margin-left: 40px;
+	padding-right:200px;
+}
+.header{
+	/*background-image: url("http://sohanews.sohacdn.com/thumb_w/660/2016/xin-dung-than-phien-viet-nam-cham-chap-8-1468473294003-crop-1468473305009-1468492422237-0-0-306-600-crop-1468492471123.jpg");*/
+	border-bottom: 1px solid black;
+	box-shadow: 5px 5px 15px #2F4F4F;
+	background-color: white;
+	background-size: cover;
+	height:62px;
+	position: fixed;
+	z-index:1;
+	width:100%;
+}
 
 /*----------- content1 ----------*/
 .content1{
@@ -129,15 +207,15 @@
 
 
 /*----------- content2 ----------*/
-.col-md-7{
+.col-md-6
+{
 	display: inline-block;
-	border: 1px solid #D3D3D3;
-	margin: 10px 0px 0px 35px;
+	margin: 0px 0px 0px 150px;
 	float: left;
 	height: auto;
-	width: 820px;
 	background-color: #FFFFFF;
 	border-radius: 4px;
+	padding:10px;
 }
 .content2title{
 
@@ -198,10 +276,10 @@
 
 
 /*----------- content3 ----------*/
-.col-md-4{
+.col-md-3{
 	display: inline-block;
-	margin:10px 0px 0px 10px;
-	border: 1px solid #D3D3D3;
+	margin:0px 0px 0px 0px;
+	border-radius: 4px;
 }
 .content3title{
 
@@ -288,14 +366,15 @@
 	font-size: 12px;
 	font-family: arial;
 	display: block;
-	margin: 10px 0px 0px 0px;
+	margin: 10px 0px 0px 10px;
 }
 .span7{
-	font-size: 19px;
-	color: #33CC99;
+	font-size: 15px;
+	font-family:arial;
+	color:black;
 	font-family: arial;
 	display: block;
-	margin: 10px 0px 0px 00px;
+	margin: 15px 0px 0px 0px;
 }
 #prev{
 	display: inline-block;
@@ -320,8 +399,7 @@
 /*----------thong tin nguoi moi gioi-----------*/
 .content6{
 	display: block;
-	margin:5px 80px 0px 0px;
-	float: right;
+	margin:5px 100px 0px 0p
 	height: auto;
 }
 .rounded-circle{
@@ -357,10 +435,9 @@
 /*----------thong tin cho tiet phong tro----------*/
 .content7{
 	display: inline-block;
-	margin: 0px 0px 0px 000px;
+	margin: 0px 0px 0px 0px;
 	float: left;
 	height: auto;
-	width: 550px;
 	background-color: #FFFFFF;
 }
 .content7 p{
@@ -372,7 +449,7 @@
 	display: block;
 	font-family: arial;
 	font-size: 12px;
-	margin: 10px 0px 10px 10px;
+	margin: 0px 0px 10px 10px;
 }
 .content7 div{
 	display: inline-block;

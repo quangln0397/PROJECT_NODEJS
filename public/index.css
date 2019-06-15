@@ -1,10 +1,104 @@
-
 *{
 	margin: 0px;
 	padding:0px;
 }
 body{
 	overflow-x:hidden;
+}
+
+select{
+	 text-indent: 90px;
+		height: 40px;
+		box-shadow: 1px 1px 5px #330033
+}
+select:hover{
+	background-color: #EFF0F1;
+}
+
+#selectloaiphong{
+	text-indent:90px;
+}
+#selectmucgia{
+		text-indent:90px;
+}
+
+li{
+		float: right;
+}
+ a{
+	 font-family:arial;
+	 font-size:15px;
+		display: inline;
+		color:black;
+		text-align: center;
+		padding: 16px;
+		text-decoration: none;
+		width: 80px;
+}
+ a:hover {
+		color: orange;
+		text-decoration: none;
+}
+
+
+
+
+#search{
+height:660px;
+ text-align: center;
+ background-image: url("https://webcdn.executivecentre.com.cn/wp-content/uploads/2018/05/2018_5_2_Blog-image.jpg");
+ background-size: cover;
+ padding-top:95px;
+ -moz-box-shadow:    0px 0px 5px 2px #282a2d;
+ -webkit-box-shadow: 0px 0px 5px 2px #282a2d;
+}
+
+.col-md-12 {
+		width:100%;
+		color: black;
+		background: #E9E9E9;}
+}
+#logo1{
+	font-family:Comic sans MS;
+	font-weight:600;
+	font-size:18px;
+	text-decoration: none;
+	color:black;
+	display:inline;
+	margin-left: 130px;
+	padding-right:200px;
+}
+#logo2{
+	font-family:Comfortaa;
+	font-weight:600;
+	font-size:18px;
+	text-decoration: none;
+	color:#008000;
+	display:inline;
+	margin-left: 40px;
+	padding-right:200px;
+}
+.header{
+	/*background-image: url("http://sohanews.sohacdn.com/thumb_w/660/2016/xin-dung-than-phien-viet-nam-cham-chap-8-1468473294003-crop-1468473305009-1468492422237-0-0-306-600-crop-1468492471123.jpg");*/
+	border-bottom: 1px solid black;
+	box-shadow: 5px 5px 15px #2F4F4F;
+	background-color: white;
+	background-size: cover;
+	height:62px;
+	position: fixed;
+	z-index:1;
+	width:100%;
+}
+
+ul{
+	list-style: none;
+	margin-top:10px;
+}
+#ndfooter{
+margin-left:100px;
+}
+#kq{
+margin-top: 1em;
 }
 
 
@@ -67,11 +161,12 @@ body{
 
 
 #DIV_1 {
-		margin-left: 160px;
+	background-color: #D5E9F5;
+		margin-left: 0px;
     bottom: 0px;
     box-sizing: border-box;
     color: rgb(50, 50, 61);
-    height: 450px;
+    height: 600px;
     left: 0px;
     min-height: 1px;
     min-width: auto;    position: relative;
@@ -79,7 +174,7 @@ body{
     text-decoration: none solid rgb(50, 50, 61);
     text-rendering: optimizelegibility;
     top: 0px;
-    width: 990px;
+    width: 100%;
     word-break: break-word;
     column-rule-color: rgb(50, 50, 61);
     perspective-origin: 480px 80px;
@@ -371,6 +466,7 @@ body{
 #DIV_6:hover
 {
   transform: scale(1.2);
+	filter: brightness(25%);
 }
 #DIV_9{
 			transition: all 0.5s ease;
@@ -379,6 +475,7 @@ body{
 #DIV_9:hover
 {
   transform: scale(1.2);
+	filter: brightness(45%);
 }
 
 #DIV_12{
@@ -388,6 +485,7 @@ body{
 #DIV_12:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 #DIV_15{
 	transition: all 0.5s ease;
@@ -397,6 +495,7 @@ body{
 #DIV_15:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 #DIV_18{
 	transition: all 0.5s ease;
@@ -405,6 +504,7 @@ body{
 #DIV_18:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 #DIV_21{
 	transition: all 0.5s ease;
@@ -413,6 +513,7 @@ body{
 #DIV_21:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 #DIV_24{
 		transition: all 0.5s ease;
@@ -421,6 +522,7 @@ body{
 #DIV_24:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 #DIV_27{
 		transition: all 0.5s ease;
@@ -430,18 +532,21 @@ body{
 #DIV_27:hover
 {
   transform: scale(1.2);
+		filter: brightness(45%);
 }
 
 #DIV_6, #DIV_9, #DIV_12, #DIV_18, #DIV_21, #DIV_24 {
-
+		border-radius:50%;
+		-moz-border-radius:50%;
+		-webkit-border-radius:50%;
 		background-size: cover;
     box-sizing: border-box;
     color: rgb(50, 50, 61);
     float: left;
-    height: 150px;
+    height: 180px;
     text-decoration: none solid rgb(50, 50, 61);
     text-rendering: optimizelegibility;
-    width: 210px;
+    width: 200px;
     word-break: break-word;
     column-rule-color: rgb(50, 50, 61);
     perspective-origin: 105px 59px;
@@ -449,9 +554,31 @@ body{
     caret-color: rgb(50, 50, 61);
     border: 0px none rgb(50, 50, 61);
     font: normal normal 400 normal 14px / 0px Roboto, sans-serif;
-    margin: 30px 30px 0px 0px;
+    margin: 40px 40px 0px 0px;
     outline: rgb(50, 50, 61) none 0px;
 }/*#DIV_6, #DIV_9, #DIV_12*/
+
+#DIV_15, #DIV_27 {
+	border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
+	    margin: 40px 0px 0px 0px;;
+    box-sizing: border-box;
+    color: rgb(50, 50, 61);
+    float: left;
+    height: 180px;
+    text-decoration: none solid rgb(50, 50, 61);
+    text-rendering: optimizelegibility;
+    width: 200px;
+    word-break: break-word;
+    column-rule-color: rgb(50, 50, 61);
+    perspective-origin: 105px 59px;
+    transform-origin: 105px 59px;
+    caret-color: rgb(50, 50, 61);
+    border: 0px none rgb(50, 50, 61);
+    font: normal normal 400 normal 14px / 0px Roboto, sans-serif;
+    outline: rgb(50, 50, 61) none 0px;
+}/*#DIV_15*/
 
 #DIV_6:after, #DIV_9:after, #DIV_12:after {
     box-sizing: border-box;
@@ -740,24 +867,7 @@ body{
     transition: all 0.7s ease 0s;
 }/*#IMG_14:before*/
 
-#DIV_15, #DIV_27 {
-	margin-top: 30px;
-    box-sizing: border-box;
-    color: rgb(50, 50, 61);
-    float: left;
-    height: 150px;
-    text-decoration: none solid rgb(50, 50, 61);
-    text-rendering: optimizelegibility;
-    width: 210px;
-    word-break: break-word;
-    column-rule-color: rgb(50, 50, 61);
-    perspective-origin: 105px 59px;
-    transform-origin: 105px 59px;
-    caret-color: rgb(50, 50, 61);
-    border: 0px none rgb(50, 50, 61);
-    font: normal normal 400 normal 14px / 0px Roboto, sans-serif;
-    outline: rgb(50, 50, 61) none 0px;
-}/*#DIV_15*/
+
 
 #DIV_15:after {
     box-sizing: border-box;
@@ -827,7 +937,7 @@ border-radius:50%;
 -webkit-border-radius:50%;
 }
 .maindiv{
-	background-color: #F4F4F4;
+	background-color: white;
 }
 
 
@@ -1280,29 +1390,212 @@ table{
 	border: 10px;
 	margin-top:30px;
 	margin-left:130px;
-	margin-bottom: 10px;
+	margin-bottom: 40px;
 	width:400px;
 }
 .btn-warning{
 	margin-bottom:0px;
 }
-.btn-success{
+.buttondangtin{
 	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
 	height:50%;
-	background-color: #fff;
+	color: #00A855;
+	background-color: white;
 }
+.buttondangtin:hover{
+	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
+	height:50%;
+	color: white;
+	background-color:  #00A855;
+}
+
+
 
 #searchButton{
 	margin-top:8px;
 	color:white;
 	height:45px;
 	width:280px;
-	border: 2px solid #D7DF01	;
+	border: 2px solid #FF2300			;
 	border-radius: 25px;
 	margin-left:15px;
-	background-color: #D7DF01;
+	background-color: #FF2300
+		;
 }
 #searchButton:hover{
 	color: black;
 	background-color: white;
+}
+
+.footer-distributed{
+	background-color: #292c2f;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+
+	padding: 30px 50px;
+
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left{
+	width: 40%;
+}
+
+/* The company logo */
+
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+
+.footer-distributed h3 span{
+	color:  #5383d3;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footer-distributed .footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+	color:  #8f9296;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center{
+	width: 35%;
+}
+
+.footer-distributed .footer-center i{
+	background-color:  #33383b;
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footer-distributed .footer-center p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+	color:  #5383d3;
+	text-decoration: none;;
+}
+
+
+/* Footer Right */
+
+.footer-distributed .footer-right{
+	width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+	display: block;
+	color:  #ffffff;
+	font-size: 14px;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+	margin-top: 15px;
+}
+
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+
+	.footer-distributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+
 }
