@@ -1,23 +1,35 @@
 <html>
 <head>
+  <link  type = "text/css" href = "/css/header.css" rel = "stylesheet" media = "screen">
+  <link  type = "text/css" href = "/css/footer.css" rel = "stylesheet" media = "screen">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
+
   <title>Cập nhật thông tin người dùng</title>
 </head>
-<body>
-  <%var user%>
+<body style="margin:0; padding:0">
+  <% var user;%>
+  <%- include('./partials/header.ejs', {user});%>
+  <div class="maindiv" style="padding-top:95px;">
   <center>
     <h2 style="color:red">Thông tin người dùng</h2>
     <img src="<%=user[0].avatar%>" height="120" weight="120"><br/>
-    <b>Tên đăng nhập:</b>&emsp; <%=user[0].username%><br/>
-    <b>Số điện thoại:</b>&emsp; <%=user[0].SDT%><br/>
-    <b>Email:</b>&emsp; <%=user[0].Email%><br/>
-  <form action="/updateUser" method="post" enctype="multipart/form-data">
-
-    <input type="file" name="avatarUser" accept="image/*" /><br/>
-    <input type="submit" name="submit"/>
-  </center>
-
-
+    <form action="/updateUser" method="post" enctype="multipart/form-data">
+      <br/>
+      <input type="file" name="avatarUser" accept="image/*" /><br/>
+      <input type="submit" name="submit"/>
+    </form>
+    <b>Tên đăng nhập:</b>&emsp;<input type="text" value="<%=user[0].username%>"><br/><br/>
+    <b>Số điện thoại:</b>&emsp;&emsp; <input type="text" value="<%=user[0].SDT%>"><br/><br/>
+    <b>Email:</b>&emsp;&emsp;&emsp;&emsp;&emsp; <input type="text" value="<%=user[0].Email%>"<br/><br/><br/><br/><br/><br/>
+    </center>
   </form>
+</div>
+<%- include('./partials/footer.ejs') %>
+
+  <style>
+  </style>
 </body>
 </html>
 

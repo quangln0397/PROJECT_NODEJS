@@ -37,9 +37,12 @@
 				<%}%>
 
 			<div class="w3-content w3-display-container">
-		<% for (var i=0;i<imgphong.length;i++){%>
+		<% for (var i=0;i<imgphong.length;i++){
+			if(imgphong[i].includes("http")){%>
 	  <img class="mySlides" src="<%=imgphong[i]%>" style="width:100%; height:420px">
-		<%}%>
+		<%}else{%>
+			<img class="mySlides" src="../<%=imgphong[i]%>" style="width:100%; height:420px">
+		<%}}%>
 
 
 	  <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
@@ -54,9 +57,11 @@
 
 			<!-- thong tin nguoi moi gioi -->
 		<div  class="col-md-3"  style="background-color: white; margin-right:60px;">
-			<img class="rounded-circle" src="/anh/avata.jpg">
-			<div class="content6">
-				<a href="#"style="font-size: 15px;">Quang</a>
+			<img class="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3gC0RYb2XoamdOFnVC-bLl3V2lnhcMMT4bFs20jquiZGI1Ok">
+			<div class="content6"><br/>
+				Người đăng: <a href="#"style="font-size: 15px;">Admin</a><br/>
+				Phone: 0847402556
+				<p></p>
 				<!--<span style="font-size: 12px;">Môi giới</span>
 				<span style="font-size: 15px;">ĐT: 0354531407</span>-->
 			</div>

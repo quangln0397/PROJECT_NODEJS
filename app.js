@@ -41,7 +41,7 @@ var tinhthanhinfor;
 var quanhuyeninfor;
 var phonginfor;
 var dbo;
-
+var collectioncount;
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
@@ -55,7 +55,7 @@ MongoClient.connect(url, function(err, db) {
     if(err) throw err;
     quanhuyeninfor = result;
   });
-	dbo.collection("phong").find({}).toArray(function(err,result){
+	dbo.collection("phong").find({}).sort({ngaydang: 1}).toArray(function(err,result){
 		if(err) throw err;
 		data = result;
 	});
@@ -63,6 +63,7 @@ MongoClient.connect(url, function(err, db) {
     if(err) throw err;
     userinfor = result;
   });
+
     console.log("---Loading for the first time----")
   setTimeout(function(){
   app.listen(3000);
@@ -83,6 +84,10 @@ app.set("views", "./views");
 
 
 app.get("/", function(req,res){
+  dbo.collection("phong").find({}).sort({ngaydang: 1}).toArray(function(err,result){
+		if(err) throw err;
+		data = result;
+	});
   if(req.isAuthenticated()){
 	res.render("index",{data, tinhthanhinfor, quanhuyeninfor, user:req.user});
   console.log(req.user);
@@ -92,19 +97,25 @@ app.get("/", function(req,res){
 }/*Lan dau bat server load data cho khoang 5s */
 });
 
+app.get("/index:tinhthanh", function(req,res){
+  dbo.collection("phong").find({tinhthanh: req.params.tinhthanh}).toArray(function(err,result){
+  if(err) throw err;
+  data = result;
+});
+  setTimeout(function(){
+    res.render("index",{data, tinhthanhinfor, quanhuyeninfor});
+  },2000);
+});
+
 app.post("/", function (req, res) {
-    MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
-        if (err) throw err;
-        var dbo = db.db("PHONGTRO");
         var query = req.body;
         dbo.collection("phong").find(query).toArray(function (err, result) {
             if (err) throw err;
             console.log(query);
             data = result;
             res.render("index", { data, tinhthanhinfor, quanhuyeninfor });
-            db.close();
         });
-    });
+
 });
 
 
@@ -125,12 +136,37 @@ app.get("/detail/:idphong", (req,res)=>{
 
 
 app.get("/dangtin", function(req,res){
-  if(req.isAuthenticated()){
-	res.render("dangtin");
-  }
-  else{
-    res.redirect("/dangnhap")
-  }
+  dbo.collection("phong").countDocuments({},function(error, result) {
+    console.log(result);
+    collectioncount = result;
+    if(req.isAuthenticated()){
+    res.render("dangtin", {user:req.user, collectioncount, tinhthanhinfor,quanhuyeninfor});
+    }
+    else{
+      res.redirect("/dangnhap")
+    }
+  });
+
+});
+
+app.post("/dangtin", upload.array('imgphong'), function(req,res){
+  var filenames = req.files.map(function(file) {
+  return "uploads/"+file.filename; // or file.originalname
+  });
+  var anhphong = filenames.toString();
+  var tinmoi = req.body;
+  tinmoi.img = anhphong;
+  console.log(tinmoi);
+  console.log(req.files);
+
+
+  dbo.collection("phong").insertOne(tinmoi, function(err, res) {
+    if (err) throw err;
+    console.log("Dang tin thanh cong");
+
+  alert("Đăng tin thành công!");
+  });
+  res.redirect("/");
 });
 
 

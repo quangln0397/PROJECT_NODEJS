@@ -24,22 +24,22 @@ table{
 	background-color: #DFF0D8;
 	padding:0.5em 10px;
 	font-family:arial;
-	width:630px;	
-	font-weight: normal;	
+	width:630px;
+	font-weight: normal;
 }
 #notify2{
 	background-color: #DFF0D8;
 	padding:0.5em 10px;
 	font-family:arial;
-	width:630px;	
-	font-weight: normal;	
+	width:630px;
+	font-weight: normal;
 }
 #notify3{
 	background-color: #DFF0D8;
 	padding:0.5em 10px;
 	font-family:arial;
-	width:630px;	
-	font-weight: normal;	
+	width:630px;
+	font-weight: normal;
 }
 
 .noidung p{
@@ -66,4 +66,8 @@ table{
 	width:200px;
 	height:40px;
 	margin-left: 10px;
+}
+li{
+	text-align: left;
+	margin-right:20px;
 }

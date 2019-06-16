@@ -46,7 +46,6 @@ class ListPhong extends React.Component{
         {phong.wifi!=0&&<img src="anh/wifi.png"  style={{height:"30px", width:"30px", marginLeft:"10px",marginTop: "5px"}}/>}
         {phong.maylanh!=0&&<img src="anh/maylanh.png"  style={{height:"30px", width:"30px", marginLeft:"10px",marginTop: "5px"}}/>}
         <span className="span4" style={{color:"#BB0000", fontWeight:"700",fontSize:"16px",marginTop: "5px"}}>{phong.gia}</span>
-        <img id="thatim" src="anh/tim1.png"  style={{height:"25px", width:"25px"}} onclick="changeImage()"/>
         <span className="span2">Ngày đăng: 23/04/2019 | Số lượt xem: 100.</span>
         </div>
         </div>

@@ -157,17 +157,19 @@
                 <option class="lt" value="phongtro">Phòng trọ</option>
                 <option class="lt" value="nhanguyencan">Nhà nguyên căn</option>
                 <option class="lt"value="canho">Căn hộ</option>
+                <option class="lt"value="khachsan">Khách sạn</option>
+
             </select></li>
             <li><select  class="button" name="tinhthanh" style="width: 310px;height: 50px; margin-left:10px;">
                     <option  value="" disabled selected>Tỉnh/Thành phố</option>
                     <% for(var i=0;i<tinhthanhinfor.length;i++){%>
-                      <option value="quan1"><%=tinhthanhinfor[i].tinhthanh%></option>
+                      <option value="<%=tinhthanhinfor[i].tinhthanh%>"><%=tinhthanhinfor[i].tinhthanh%></option>
                       <%}%>
                 </select></li>
             <li><select  class="button" name="quan" style="width: 310px;height: 50px;margin-left:10px; text-align:center; ">
                 <option  value="" disabled selected>Quận/Huyện</option>
               <% for(var i=0;i<quanhuyeninfor.length;i++){%>
-                <option value="quan1" style="color:black;"><%=quanhuyeninfor[i].quanhuyen%></option>
+                <option value="<%=quanhuyeninfor[i].quanhuyen%>" style="color:black;"><%=quanhuyeninfor[i].quanhuyen%></option>
                 <%}%>
             </select></li>
             <li><select  class="button" name="mucgia" id="selectmucgia" style="width: 310px;height: 50px;margin-left:10px;">
@@ -189,30 +191,30 @@
     <div id="DIV_5">
       <div class="outer_div">
   		<div id="DIV_6");>
-  			<a href="/zing-chart-tuan/bai-hat-Viet-Nam/IWZ9Z08I.html" id="A_7" ><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Nẵng</b></span></a>
+  			<a href="/Thành phố Đà Nẵng" id="A_7" ><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Nẵng</b></span></a>
   		</div>
     </div>
   		<div id="DIV_9">
-  			<a href="/zing-chart-tuan/MV-Viet-Nam/IWZ9Z08W.html" id="A_10"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Hồ Chí Minh</b></span></a>
+  			<a href="/Thành phố Hồ Chí Minh" id="A_10"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Hồ Chí Minh</b></span></a>
   		</div>
   		<div id="DIV_12">
-  			<a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13""><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Huế</b></span></a>
+  			<a href="/Tỉnh Thừa Thiên Huế" id="A_13""><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Huế</b></span></a>
   		</div>
   		<div id="DIV_15">
-  			<a href="/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Nha Trang</b></span></a>
+  			<a href="/Tỉnh Khánh Hòa" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Nha Trang</b></span></a>
   		</div>
       <div id="DIV_18">
-        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Lạt</b></span></a>
+        <a href="/Tỉnh Lâm Đồng" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Đà Lạt</b></span></a>
       </div>
       <div id="DIV_21">
-        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Vũng Tàu</b></span></a>
+        <a href="/Tỉnh Bà Rịa - Vũng Tàu" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Vũng Tàu</b></span></a>
       </div>
       <div id="DIV_24">
-        <a href="/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Phú Quốc</b></span></a>
+        <a href="/Tỉnh Kiên Giang" id="A_13" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Phú Quốc</b></span></a>
       </div>
 
       <div id="DIV_27">
-        <a href="/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Cần Thơ</b></span></a>
+        <a href="/Thành phố Cần Thơ" id="A_16" ;"><span style="color:white; font-size:28px;"><b><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>Cần Thơ</b></span></a>
       </div>
     </center>
 
@@ -226,7 +228,7 @@
     </div>
 		<div class="col-md-7" data-aos="fade-up"
      data-aos-duration="1000" >
-      <h5 style="font-family: arial; margin-top: 20px; color:green;">PHÒNG TRỌ, CĂN HỘ, NHÀ NGUYÊN CĂN</h5>
+      <h5 style="font-family: arial; margin-top: 20px; color:green;">KHÁCH SẠN, CĂN HỘ, PHÒNG TRỌ</h5>
 			<hr/>
 			<div id="danhsachphongtro">
 			</div>

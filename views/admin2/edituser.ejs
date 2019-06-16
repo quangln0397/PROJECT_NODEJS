@@ -171,11 +171,13 @@
                 <div class="card-body">
                   <div class="table-responsive">
                     <form method="post"><% var EditUser;%>
-                      <img src="/<%=EditUser.avatar%>" width="100px" height="100px" style="margin-left:200px">                      <p>Tài Khoản <span style="color:red">*</span></p><input type="text" name="username" value="<%=EditUser.username%>" style="width:480px; margin-left:40px">
-                      <p style="margin-top:1em;">Địa Chỉ Email <span style="color:red">*</span></p><input type="text" name="Email" value="<%=EditUser.Email%>" style="width:480px;margin-left:40px">
-                      <p style="margin-top:1em;">Số Điện Thoại <span style="color:red">*</span></p><input type="text" name="SDT" value="<%=EditUser.SDT%>" style="width:480px;margin-left:40px">
-                      
-                      <br/><br/><input type="submit" class="btn btn-success" value="Cập Nhật Thay Đổi" style="margin-left:170px"><br/>
+                      <center>
+                      <img src="<%=EditUser.avatar%>" width="100px" height="100px">                <span style="margin-top:20px;"> <p></p>   Tài Khoản <span style="color:red">*</span><input type="text" name="username" value="<%=EditUser.username%>" style="width:480px; margin-left:40px">
+                      <p></p>Địa Chỉ Email <span style="color:red">*</span><input type="text" name="Email" value="<%=EditUser.Email%>" style="width:480px;margin-left:40px"><p></p>
+                    Số Điện Thoại <span style="color:red">*</span><input type="text" name="SDT" value="<%=EditUser.SDT%>" style="width:480px;margin-left:40px"><br/><br/>
+
+                    <input type="submit" class="btn btn-success" value="Cập Nhật Thay Đổi"><br/>
+                  </center>
                     </form>
                   </div>
                 </div>

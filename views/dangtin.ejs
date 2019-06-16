@@ -3,6 +3,10 @@
 <head>
 	<title> Trang Đăng Tin</title>
 	<link rel="stylesheet" type="text/css" href="dangtin.css">
+	<link rel="stylesheet" type="text/css" href="/css/header.css">
+	<link rel="stylesheet" type="text/css" href="/css/footer.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<meta charset="utf-8">
 	<style>
@@ -75,19 +79,9 @@
 	</head>
 
 <body>
-	<div id="header">
-            	<a id= "logo" href="/"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:40px;width:40px"></a>
-                <a href="#dangky">Phòng cho thuê</a>
-                <a href="#timkiem">Nhà cho thuê</a>
-                <a href="#timkiem" >Tìm kiếm</a>
-                <a href="/dangnhap">Đăng Nhập</a>
-             	<a href="#hotro">Hỗ trợ</a>
-                <a href="lienhe">Liên hệ</a>
-              	  <input type="submit" value="Đăng Tin" class="btn btn-info"/>
-        </div>
-      <hr/>
-
-        <br/>
+		<% var user;%>
+		  <%- include('./partials/header.ejs', {user});%>
+  <div class="maindiv" style="padding-top:95px;">
 	<table>
 		<tr>
 			<td width="200px" valign="top" ></td>
@@ -99,32 +93,40 @@
 			</tr>
 			<tr>
 				<td class="noidung">
+					<form method="post"  enctype="multipart/form-data">
 					<p></p>
 					<p id="warning">Là người văn minh và tôn trọng người xem, hãy viết nội dung bằng tiếng việt có dấu !!!
 					</p>
 					<p>Tiêu đề tin<span style="color:red"> (*)</span>
-						<center><input type="text" name="Tieu de tin" size="88" class="textbox" placeholder="Hãy đặt tiêu đề đẩy đủ nghĩa, khách sẽ quan tâm hơn"/></center>
+						<center><input type="text" name="tieude" size="88" class="textbox" placeholder="Hãy đặt tiêu đề đẩy đủ nghĩa, khách sẽ quan tâm hơn"/></center>
 					</p>
 					<p>
+						<% var now = Date.now()%>
+						<input type="hidden" name="ID" value="<%=collectioncount+1%>">
+						<input type="hidden" name="ngaydang" value= <%=now%>>
 						Loại chuyên mục<span style="color:red"> (*)</span>
-						<select name="dropdowndoituongchothue" class="textbox">
-							<option selected>--Chọn loại chuyên mục--</option>
+						<select name="loai" class="textbox">
+							<option selected>Chọn loại chuyên mục--</option>
 							<option value="phongtro">Phòng trọ, nhà trọ</option>
 							<option value="nhanguyencan">Nhà thuê nguyên căn</option>
+							<option value="canho">Căn Hộ</option>
+							<option value="canho">Khách Sạn</option>
+
 						</select>
-						&emsp;&emsp;&emsp;&emsp; Số điện thoại<span style="color:red">(*)</span> <input type="text" name="Tieu de tin" size="10" class="textbox"/>
+						&emsp;&emsp;&emsp;&emsp; Số điện thoại <input type="text" name="Tieu de tin" size="10" class="textbox"/>
 					</p>
 					<p>
 						Giá cho thuê<span style="color:red"> (*)</span><br/><br/>
-						<input type="text" name="Gia cho thue" size="30" class="textbox" placeholder="Giá cho thuê (VNĐ)"/>
+						<input type="text" name="gia" size="30" class="textbox" placeholder="Giá cho thuê (VNĐ)"/>
 
 					</p>
 					<p>
 						Diện tích<span style="color:red"> (*)</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 						Đối tượng cho thuê<span style="color:red"> (*)</span><br/>
 						<br/>
-							<input type="text" name="Gia cho thue" size="30" class="textbox" placeholder="Nhập diện tích (m2)"/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-						<select name="dropdowndoituongchothue" id="dropdowndoituongchothue" class="textbox">
+							<input type="text" name="dientich" size="30" class="textbox" placeholder="Nhập diện tích (m2)"/>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+						<select name="doituongchothue" id="dropdowndoituongchothue" class="textbox">
+							<option value="Nam/Nữ" selected>Nam/Nữ</option>
 							<option value="Nam" selected>Nam</option>
 							<option value="Nữ">Nữ</option>
 						</select>
@@ -139,19 +141,21 @@
 			<tr>
 				<td class="noidung">
 					<p>Tỉnh/ Thành phố<span style="color:red"> (*)</span>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Quận/ Huyện<span style="color:red"> (*)</span></p>
-					<select name="dropdowntinhthanhpho" id="dropdowntinhthanhpho">
-							<option selected>--Chọn Tỉnh/TP--</option>
-							<option value="phongtro">TP.HCM</option>
-							<option value="nhanguyencan">Hà Nội</option>
+					<select name="tinhthanh" id="dropdowntinhthanhpho">
+							<option selected>Chọn Tỉnh/TP--</option>
+							<% for(var i=0;i<tinhthanhinfor.length;i++){%>
+								<option value="<%=tinhthanhinfor[i].tinhthanh%>"><%=tinhthanhinfor[i].tinhthanh%></option>
+								<%}%>
 						</select>
 					&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-					<select name="dropdownquanhuyen" id="dropdownquanhuyen">
-							<option selected>--Chọn Quận/Huyện--</option>
-							<option value="phongtro">Quận 1</option>
-							<option value="nhanguyencan">Quận 2</option>
+					<select name="quanhuyen" id="dropdownquanhuyen">
+							<option selected>Chọn Quận/Huyện--</option>
+							<% for(var i=0;i<quanhuyeninfor.length;i++){%>
+								<option value="<%=quanhuyeninfor[i].quanhuyen%>"><%=quanhuyeninfor[i].quanhuyen%></option>
+								<%}%>
 						</select>
 					<p>Địa chỉ chính xác<span style="color:red"> (*)</span></p>
-					<center><input type="text" name="Tieu de tin" size="88" class="textbox" placeholder="Hãy nhập địa chỉ chính xác để khách hàng đễ tìm hơn"/></center>
+					<center><input type="text" name="diachi" size="88" class="textbox" placeholder="Hãy nhập địa chỉ chính xác để khách hàng đễ tìm hơn"/></center>
 					<p>Bản đồ<span style="color:red"> (*)</span></p>
 					<p id="notify1">Để tăng độ tin cậy và tin rao được nhiều người quan tâm hơn, hãy sửa vị trí tin rao của bạn trên bản đồ bằng cách kéo icon tới đúng vị trí của tin rao</p>
 					<p><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15672.756938112065!2d106.79391692508545!3d10.873207178077381!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317527587e9ad5bf%3A0xafa66f9c8be3c91!2sUniversity+of+Information+Technology+VNU-HCM!5e0!3m2!1sen!2s!4v1551942104686" width="650" height="350" frameborder="0" style="border:0" allowfullscreen></iframe></p>
@@ -164,6 +168,21 @@
 			</tr>
 			<tr>
 				<td class="noidung">
+					<p><br/>
+						Máy Lạnh<span style="color:red"> (*)</span>
+						<select name="maylanh" class="textbox" >
+							<option value="0" selected></option>
+							<option value="0">Không</option>
+							<option value="1">Có </option>
+
+
+
+						</select>
+
+						&emsp;&emsp;&emsp;Wifi<span style="color:red"> (*)</span>
+							<input type="text" name="wifi" size="28" class="textbox" placeholder="Giá (VNĐ)"/>
+
+						</p>
 					<p id="notify2">Giới thiêu mô tả về tin đăng của bạn. Ví dụ: khu nhà có vị trí thuận lợi: Gần công viên, gần trường học... Tổng diện tích 52m2, đường đi ô tô vào tận cửa</p>
 					<p>Nội dung<span style="color:red"> (*)</span></p>
 					<center>
@@ -183,13 +202,18 @@
 					<p id="notify3">Tin đăng có hình ảnh rõ ràng sẽ được xem và gọi gấp nhiều lần so với tin rao không có ảnh. Hãy đăng ảnh để được giao dịch nhanh chóng!
 					</p>
 					<center>
-						<input  type="file" name="uploadanh" accept="image/*" id="upfile1" " /><!--Muốn thay thế ảnh xem hd link này: https://codepen.io/adamrifai/pen/YXdEwz-->
+						<input type="file" name="imgphong" accept="image/*" /><br/>
+						<input type="file" name="imgphong" accept="image/*" /><br/>
+						<input type="file" name="imgphong" accept="image/*" /><br/>
+						<input type="file" name="imgphong" accept="image/*" /><br/>
+					<!--Muốn thay thế ảnh xem hd link này: https://codepen.io/adamrifai/pen/YXdEwz-->
 				</center>
 				</td>
 			</tr>
 		</table>
 		<br/>
 		<input type="submit" value="ĐĂNG TIN NGAY" name="Dang tin" class="btn btn-danger" style="margin-left: 220px"/>
+	</form>
 </td>
 	<td width=300px valign="top">
 		<table border="1" width="300px">
@@ -211,23 +235,10 @@
 	</td>
 	</tr>
 </table>
-<hr/>
+</div>
+<br/>
+<%- include('./partials/footer.ejs') %>
 
- <div class="footer">
-        	<div id="ndfooter">
-			<p id= "logo2" href="#trangchu" style="font-size: 15px;"><i>TÌMPHÒNGNHANH.vn</i><img src="folder/logo1.png" style="height:35px;width:35px"></p>            <p>Phone: 0362365847</p>
-            <p>Địa Chỉ: ktx khu B ĐHQG TP.HCM</p>
-            <p>Gmail: nguyenvinhnam1997@gmail.com</p>
-            <p>
-                <a href="https://www.facebook.com/profile.php?id=100005539327576">
-                <img src="folder/fb.png" alt="FACE" style="height: 40px;width: 40px">
-                </a>
-                <a href="https://www.youtube.com/channel/UC1ny2GCfd25AwwNW1t-iCkg?view_as=subscriber">
-                    <img src="folder/youtu.png" alt="YOUTUBE" style="height: 40px; width: 40px;">
-                </a>
-            </p>
-        </div>
-        </div>
 
 </body>
 </html>

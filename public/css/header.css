@@ -1,0 +1,132 @@
+select{
+		height: 40px;
+		box-shadow: 1px 1px 5px #330033
+}
+select:hover{
+	background-color: #EFF0F1;
+}
+
+#selectloaiphong{
+	text-indent:90px;
+}
+#selectmucgia{
+		text-indent:90px;
+}
+
+li{
+		float: right;
+}
+ a{
+	 font-family:arial;
+	 font-size:15px;
+		display: inline;
+		color:black;
+		text-align: center;
+		padding: 16px;
+		text-decoration: none;
+		width: 80px;
+}
+ a:hover {
+		color: orange;
+		text-decoration: none;
+}
+
+
+
+
+#search{
+height:660px;
+ text-align: center;
+ background-image: url("https://webcdn.executivecentre.com.cn/wp-content/uploads/2018/05/2018_5_2_Blog-image.jpg");
+ background-size: cover;
+ padding-top:95px;
+ -moz-box-shadow:    0px 0px 5px 2px #282a2d;
+ -webkit-box-shadow: 0px 0px 5px 2px #282a2d;
+}
+
+.col-md-12 {
+		width:100%;
+		color: black;
+		background: #E9E9E9;}
+}
+#logo1{
+	font-family:Comic sans MS;
+	font-weight:600;
+	font-size:18px;
+	text-decoration: none;
+	color:black;
+	display:inline;
+	margin-left: 130px;
+	padding-right:200px;
+}
+#logo2{
+	font-family:Comfortaa;
+	font-weight:600;
+	font-size:18px;
+	text-decoration: none;
+	color:#008000;
+	display:inline;
+	margin-left: 40px;
+	padding-right:200px;
+}
+.header{
+	/*background-image: url("http://sohanews.sohacdn.com/thumb_w/660/2016/xin-dung-than-phien-viet-nam-cham-chap-8-1468473294003-crop-1468473305009-1468492422237-0-0-306-600-crop-1468492471123.jpg");*/
+	border-bottom: 1px solid black;
+	box-shadow: 5px 5px 15px #2F4F4F;
+	background-color: white;
+	background-size: cover;
+	height:62px;
+	position: fixed;
+	z-index:1;
+	width:100%;
+}
+
+ul{
+	list-style: none;
+	margin-top:10px;
+}
+#ndfooter{
+margin-left:100px;
+}
+#kq{
+margin-top: 1em;
+}
+
+.buttondangtin{
+	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
+	height:50%;
+	color: #00A855;
+	background-color: white;
+}
+.buttondangtin:hover{
+	width:200px;
+	border: 2px solid #00A855			;
+	border-radius: 5px;
+	height:50%;
+	color: white;
+	background-color:  #00A855;
+}
+
+#avatar{
+border-radius:50%;
+-moz-border-radius:50%;
+-webkit-border-radius:50%;
+}
+
+#searchButton{
+	margin-top:8px;
+	color:white;
+	height:45px;
+	width:280px;
+	border: 2px solid #FF2300			;
+	border-radius: 25px;
+	margin-left:15px;
+	background-color: #FF2300
+		;
+}
+#searchButton:hover{
+	color: black;
+	background-color: white;
+}
