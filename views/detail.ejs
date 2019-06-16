@@ -15,12 +15,64 @@
 	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
-
+	<style>
+	        .myButton{
+                height: 50px;
+                padding-top: 30px;
+                font-size: 15px;
+                background-color: #00ccff;
+                border-radius: 5px;
+                border: none;
+            }
+            .myButton:hover{
+                color: white;
+            }
+            .myTextarea{
+                border: none;
+                border-bottom: 1px solid lightgray;
+            }
+			#myDIV{
+            }
+            img{
+                border: 1px solid #3399ff;
+                height: 40px;
+                width: 40px;
+                display: inline-block;
+            }
+			pre{
+                color: black;
+                border-bottom: 1px solid lightgray;
+                margin-left: 40px;
+            }
+            pre:hover{
+                border-color: gray;
+            }
+	</style>
+	<script>
+                    var y = 0;
+                    function myFunction() {
+                        var x = document.getElementById("comment").value;
+                        var myImage = document.createElement("IMG");
+                        var para = document.createElement("PRE");
+						var para1 = document.createElement("LABLE");
+                        document.getElementById("comment").value = "";
+                        myImage.src = src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh3gC0RYb2XoamdOFnVC-bLl3V2lnhcMMT4bFs20jquiZGI1Ok";
+                        x = x.trim();
+                        para.innerHTML = x;
+						para1.innerHTML = "Admin";
+                        if(x.length > 0)
+                        {
+                        document.getElementById("myDIV").appendChild(myImage);
+						document.getElementById("myDIV").appendChild(para1);
+                        document.getElementById("myDIV").appendChild(para);
+                        }
+                    }
+        </script>
 
 <body>
 	<% var user;%>
 	<%- include('./partials/header.ejs', {user});%>
-        <div class="maindiv" style="height:1050px">
+        <div class="maindiv" style="height:1350px">
 		<div  class="col-md-6"><!-- danh sach hinh -->
 		<% var imgphong = phonginfor[0].img.split(",")%>
 		<p></p>
@@ -106,7 +158,13 @@
 		</div>
 		</div>
 	</center>
-
+	<div class="col-md-6"  style="margin-top:10px;">
+	        <div>
+			   <textarea class="myTextarea" rows="2" cols="88" id="comment" placeholder="Add a public comment..." style="display: inline-block;"></textarea>
+               <button class="myButton" type="button" onclick="myFunction()" style="display: inline-block;">COMMENT</button>
+		    </div>
+			<div id="myDIV"></div>
+	 </div>
 	</div>
 
 	   <%- include('./partials/footer.ejs') %>

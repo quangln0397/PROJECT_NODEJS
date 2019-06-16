@@ -384,6 +384,10 @@ app.get("/quanlyuser2", (req,res)=>{
   });
 //Autoincr
 app.get("/quanlybaidang", (req,res)=>{
+  dbo.collection("phong").find().sort({ID: 1}).toArray(function(err,result){
+  if(err) throw err;
+  data = result
+});
   setTimeout(function(){
     res.render("admin2/quanlybaidang",{data});
   },200);
@@ -434,6 +438,14 @@ app.get("/quanlybaidang", (req,res)=>{
   });
 });
   });
+  app.post("/editPost/:ID", (req,res)=>{
+      dbo.collection("phong").updateOne({ID : req.params.ID}, { $set: { "ID" : req.body.ID,"loai": req.body.loai,"dientich": req.body.dientich,"gia": req.body.gia ,"tienich":req.body.tienich,"maylanh":req.body.maylanh,"dien":req.body.dien,"nuoc":req.body.nuoc} }, function(err, res) {
+      if (err) throw err;
+      console.log("1 document updated");
+      alert("Updated Post!");
+  });
+  res.redirect("/admin2");
+  });
 
   app.get("/removePost/:ID", (req,res)=>{
     MongoClient.connect(url, function(err, db) {
@@ -464,20 +476,18 @@ app.get("/editPost/:ID", (req,res)=>{
     if(req.params.ID == data[i].ID)
       var EditPost = data[i];
   }
+  setTimeout(function(){
   res.render("admin2/editPost",{EditPost});
-});
+},1000) });
 
 app.get("/quanlybaidang/:filter", (req,res)=>{
   if(req.params.filter == "idtang"){
-    MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("PHONGTRO");
     dbo.collection("phong").find().sort({ID: 1}).toArray(function(err,result){
     if(err) throw err;
     data = result
     console.log(data);
       db.close();
-  });});
+  });
     setTimeout(function(){
      res.redirect("/quanlybaidang");
     },1000);
